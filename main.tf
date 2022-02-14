@@ -1,6 +1,7 @@
 provider "vault" {
  address = var.vault_addr
  token = var.vault_token
+ namespace = var.namespace
 }
 variable "vault_addr" {
     default = "https://vault.yourcompany.com:8200"
@@ -16,6 +17,8 @@ variable "client_secret" {
 variable "client_id" {
 }
 variable "application_object_id" {
+}
+variable "namespace" {
 }
 
 
