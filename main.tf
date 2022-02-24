@@ -39,11 +39,7 @@ resource "vault_azure_secret_backend_role" "azure-secret-read" {
   role                        = "azure-secret-read"
   ttl                         = 300
   max_ttl                     = 600
-
-  azure_roles {
-    role_name = "Reader"
-    scope =  "/subscriptions/${var.subscription_id}/resourceGroups/azure-vault-group"
-  }
+  application_object_id = "11111111-2222-3333-4444-44444444444"
 }
 
 resource "vault_azure_secret_backend_role" "existing_object_id" {
