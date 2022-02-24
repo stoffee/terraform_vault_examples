@@ -24,15 +24,16 @@ variable "namespace" {
 
 # azure roles
 resource "vault_azure_secret_backend" "azure" {
+  use_microsoft_graph_api = true
   subscription_id = var.subscription_id
   tenant_id       = var.tenant_id
   client_secret   = var.client_secret
   client_id       = var.client_id
 }
 
-resource "vault_azure_secret_backend_role" "generated_role" {
+resource "vault_azure_secret_backend_role" "azure-secret-read" {
   backend                     = vault_azure_secret_backend.azure.path
-  role                        = "generated_role"
+  role                        = "azure-secret-read"
   ttl                         = 300
   max_ttl                     = 600
 
