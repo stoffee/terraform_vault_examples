@@ -20,6 +20,8 @@ variable "application_object_id" {
 }
 variable "namespace" {
 }
+variable "secret_path" {
+}
 
 
 # azure roles
@@ -29,6 +31,7 @@ resource "vault_azure_secret_backend" "azure" {
   tenant_id       = var.tenant_id
   client_secret   = var.client_secret
   client_id       = var.client_id
+  path            = var.secret_path
 }
 
 resource "vault_azure_secret_backend_role" "azure-secret-read" {
